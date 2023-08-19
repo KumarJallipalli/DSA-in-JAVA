@@ -11,7 +11,7 @@ public class ElectricityBillCalculator {
             For unit above 250 Rs. 1.50/unit
             An additional surcharge of 20% is added to the bill.
 
-        NOTE: As the electricity bill can have any real value (floating point), you have to tell the floor value of the bill.
+        NOTE: As the electricity bill can have any real value (floating point), you have to tell/print the floor value of the bill.
 
         Floor value of a floating point is the closest integer less than or equal to that value. For eg, Floor value of 2.91 is 2.
 

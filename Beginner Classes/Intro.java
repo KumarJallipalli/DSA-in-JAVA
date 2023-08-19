@@ -1,8 +1,8 @@
-package Beginner_Classes;
 
-public class Intro {
-    public static void main(String[] args) {
-        /*
+public class Intro{
+    public static void main (String[] args) {
+        
+        /*                              DAY - 01
          * INTRO:
          * Computers are Dumb/stupid, but are very quick.
          * i.e., why we need to elaborate each & every step to it which it needs to be performed, so that it can perform that task in an un-imaginably faster way.

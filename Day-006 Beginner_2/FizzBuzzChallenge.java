@@ -31,6 +31,6 @@ public class FizzBuzzChallenge {
     /*
      * SUMMARY:
      *      Order of the conditional Statements is also V.IMP
-     *      If we put the qst stement at last position, then it will fail for N=15
+     *      If we put the 1st stement at last position, then it will fail for N=15
     */
 }
