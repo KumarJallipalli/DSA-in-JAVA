@@ -85,6 +85,21 @@ public class whileLoop {
             i = i+1; //updation of condition variable
         }
 
+        /*
+         * But the above code is not optimal
+         * We are iterating through all the numbers 
+         * N = 1 2 3 4 5 6 7 8 9 10...
+         * N = 1 3 5 7 9 11...
+         * So, if there is a way to only iterate over the odd numbers, 
+         *      then it will do less work & so is quicker/faster
+         * Hence, The optimal code will be
+         */
+        i = 1;
+        while (i <= n) {
+            System.out.println(i);
+            i = i + 2;
+        }
+
         //Q2: print all multiples of 4 less than 50
         i = 4;
         while (i <= 50) {
@@ -92,7 +107,7 @@ public class whileLoop {
             i = i+4;
         }
 
-        //Print all perfect square from 1 -> N
+        //Print all perfect square from 1 -> N [V.Imp]
         int N = scan.nextInt();
         i = 1;
 
