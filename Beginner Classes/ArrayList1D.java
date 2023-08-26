@@ -51,7 +51,7 @@ public class ArrayList1D {
          *      - arr.sum() -> gives the size of ArrayList;
         */
 
-        //How to take input array frok user using ArrayList
+        //How to take input array from user using ArrayList
         n = sc.nextInt();
 
         ArrayList<Integer> al = new ArrayList<Integer>();
@@ -82,6 +82,15 @@ public class ArrayList1D {
          * A[] = 2 0 -1 0 9 -1 9 8 0
          * ans: [2, 8] -> Appear only once
         */
+        ArrayList<Integer> ans2 = appearOnce(al);
+        for (int i=0; i<ans2.size(); i++) {
+            System.out.print(ans2.get(i) + " ");
+        }
+
+        //Function to convert binary to decimal number
+        System.out.println(binaryToDecimal(1011));
+
+        //End of MAIN function
     }
 
     /*
@@ -141,4 +150,42 @@ public class ArrayList1D {
         }
         return true;
     }
+
+    public static ArrayList<Integer> appearOnce (ArrayList<Integer> al) {
+        ArrayList<Integer> ans = new ArrayList<Integer>();
+        for (int i=0; i<al.size(); i++) {
+            int count = 0;
+            for (int j=0; j<al.size(); j++) {
+                if ( al.get(i) == al.get(j) )
+                    count++;
+            }
+
+            if (count == 11) 
+                ans.add(al.get(i));
+        }
+
+        return ans;
+    }
+
+    //Extra Q's
+    public static int binaryToDecimal (int n) {
+        int ans = 0;
+        int pow = 1;
+
+        while (n!=0) {
+            int rem = n%10;
+            ans = ans + rem*pow;
+            n = n/10;
+            pow = pow*2;
+        }
+
+        return ans;
+    }
+
+    /*
+     * Given an Integer N>=4, Find the 2 prime number with sum = N. 
+     * If there exists 2 pairs, print whichever the smallest of 2. [[a,b] < [c,d]]
+     *      7 -> [2,5]      ||  16 -> [5,11] & [3,13] => [3,13]
+    */
+
 }
