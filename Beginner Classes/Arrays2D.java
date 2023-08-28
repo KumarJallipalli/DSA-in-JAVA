@@ -98,22 +98,21 @@ public class Arrays2D {
         System.out.println("Enter the Elements for Matrix A : ");
         for (int i=0; i<N; i++) {
             for (int j=0; j<M; j++) {
-                System.out.print(A[i][j] + " ");
+                A[i][j] = sc.nextInt();
             }
-            System.out.println();
         }
         System.out.println("Enter the Elements for Matrix B :");
         for (int i=0; i<N; i++) {
             for (int j=0; j<M; j++) {
-                System.out.print(B[i][j] + " ");
+                B[i][j] = sc.nextInt();
             }
-            System.out.println();
         }
 
         int[][] C = matrixSum(A, B);
+        System.out.println("Elements of C matrix :");
         for (int i=0; i<C.length; i++) {
             for (int j=0; j<C[0].length; j++) {
-                System.out.println(C[i][j] + " ");
+                System.out.print(C[i][j] + " ");
             }
             System.out.println();
         }
@@ -144,18 +143,18 @@ public class Arrays2D {
     //Function to returns 2nd largest element from 1D array
     public static int secondLargestElement (int[] arr) {
         int max = arr[0];
-        for (int i=0; i<arr.length; i++) {
+        for (int i=1; i<arr.length; i++) {
             if(arr[i] > max) {
                 max = arr[i];
             }
         }
-        int ans = arr[0];
-        for (int i=0; i<arr.length; i++) {
-            if(arr[i] > ans && arr[i] != max) {
-                ans = arr[i];
+        int secondMax = arr[0];
+        for (int i=1; i<arr.length; i++) {
+            if(arr[i] > secondMax && arr[i] != max) {
+                secondMax = arr[i];
             }
         }
-        return ans;
+        return secondMax;
     }
 }
 
