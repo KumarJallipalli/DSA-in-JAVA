@@ -115,7 +115,6 @@ public class ForLoop {
 
         for (int i=2; i<N; i++) {
             if(N%i == 0) {
-                System.out.println(N + " is Not a Prime Number");
                 flag = false;
                 break;
             }
@@ -123,7 +122,7 @@ public class ForLoop {
         if (flag) 
             System.out.println(N + " is a Prime Number");
         else 
-            System.out.println(N + " is NOT  Prime Number");
+            System.out.println(N + " is NOT a Prime Number");
         /*
          * But to execute the above code, we don't know the "break" keyword yet
          * So, We will have to find another way to code
@@ -142,7 +141,7 @@ public class ForLoop {
         else 
             System.out.println(N + " is NOT a Prime Number");
 
-        //Q7: Will the below code work..?
+        // Q7: Will the below code work..?
         // int i = 10;
         // while (i--) {
         //     System.out.print(i + " ");

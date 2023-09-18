@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Patterns2 {
     public static void main(String[] args) {
         
-        /*
+        /*                                  DAY - 06
          * Q1: Given N, print the following patterns
          *  N = 5                           N = 3
          *      **********                      ******

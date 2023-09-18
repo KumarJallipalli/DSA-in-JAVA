@@ -16,7 +16,7 @@ public class Arrays1D {
 
         /*
          * Can you say at which line the birth of variable a & b happened..?
-         * Ans: At line 9 & 12 repectively
+         * Ans: At line 11 & 14 repectively
          *      The variables a & b will be allocated with some memory when they have been declared itself.
         */
 
@@ -29,10 +29,10 @@ public class Arrays1D {
         /*
          * Now can you say the death/last availability of var c..?
          * Ans:
-         *      WKT, birth of c took place at line 23
+         *      WKT, birth of c took place at line 25
          *      Death of c is the line where it encounters the closing curly brace.
-         *      So, var c will be ceases to exist (or) deleted from memory outside of line 25
-         *      Therefore, death of var c is at line 25 & birth is at line 23.
+         *      So, var c will be ceases to exist (or) deleted from memory outside of line 26
+         *      Therefore, death of var c is at line 26 & birth is at line 25.
         */
 
         /*
@@ -74,7 +74,7 @@ public class Arrays1D {
          *          -array_name.length -> gives the length of the array
         */
 
-        //Q: Take an array as input from user & print it's max.
+        //Q1: Take an array as input from user & print it's max.
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 

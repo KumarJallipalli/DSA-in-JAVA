@@ -79,7 +79,14 @@ public class Patterns1 {
             System.out.println();
         }
 
-        //Q5: reverse of above pattern
+        /*
+		 * Q5: reverse of above pattern
+		 * N = 3	* * *			N = 5	* * * * *
+		 * 			* *						* * * *
+		 * 			*						* * *
+		 * 									* *
+		 * 									*
+		*/
 
         /*
          * ANS:

@@ -19,7 +19,7 @@ public class IfElse {
         /*
          * Typecasting:
          *      It is the process of converting one data type to other data type.
-         *      Ex:It can be seen in line 15 -> where long is converted to int type
+         *      Ex:It can be seen in line 17 -> where long is converted to int type
         */
 
         /*
@@ -75,7 +75,7 @@ public class IfElse {
 
         /*
          * Conditional statements:
-         * COnditional statements are used to make decisions based on certain conditions.
+         * Conditional statements are used to make decisions based on certain conditions.
          * Most common conditional statements -> if-else statements, switch cases & ternary operator.
          * 
          * if-else condition:

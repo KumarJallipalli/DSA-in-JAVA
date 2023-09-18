@@ -1,9 +1,9 @@
 
 public class Functions {
 
-    /*
+    /*                                  DAY - 07
      * This following sum() function will give compilation error.
-     * It will say line 12 & 13 are unreachable statements since we have added "return" at line 11
+     * It will say line 11 & 12 are unreachable statements since we have added "return" at line 11
      * So, It will throw error saying "Unreachable statements"
     */
     public static int sum (int a, int b) {
@@ -13,7 +13,7 @@ public class Functions {
     }
     public static void main(String[] args) {
 
-        /*                              DAY - 07
+        /*                              
          * Function: A block of re-usable code, which takes some input, performs specified task on it & returns output.
          * 
          * Syntax:
