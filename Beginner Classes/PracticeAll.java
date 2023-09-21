@@ -578,10 +578,15 @@ public class PracticeAll {
 	//Function to convert Decimal Number to Binary Number [V.V.Imp]
 	/*
 	 * N = 10
-	 * 			N		Q	rem
-	 * 			10	->	5	0
-	 * 			5	->	2	1
-	 * 			2	->	1	0
+	 * 		N	    Next N (Q)	rem
+	 * 		10	->	5	0       [ 1's Position]
+	 * 		5	->	2	1       [ 10's Position]
+	 * 		2	->	1	0       [ 100's Position]
+         *              1       ->      0       1       [ 1000's Position]
+         * 
+         * - Now, rem values should be printed in reverse order.
+         * - For this, we use the position of digits & rem values
+         * - we update the postion with 10 & then multiply with rem, so that it will have the correct convertion
 	*/
 	public static int decimalToBinary (int N) {
 		int ans = 0;
@@ -589,12 +594,22 @@ public class PracticeAll {
 
 		while (N != 0) {
 			int rem = N%2;
-			ans = ans + rem*position;
+			ans = ans + position*rem;
 			position = position*10;
 			N = N/2;
 		}
 
 		return ans;
 	}
+        /*
+         * Explanation [Dry run]
+         *      N       rem     pos     ans     new N   new pos
+         *      10      0       1       0       5       10
+         *      5       1       10      10      2       100
+         *      2       0       100     10      1       1000
+         *      1       1       1000    1010    0       10000
+         *      0 => BREAK
+        */
+
 
 }
