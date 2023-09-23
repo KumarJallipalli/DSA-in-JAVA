@@ -346,9 +346,9 @@ public class TC_1 {
     */
 
 
-    void func17 (int N) {
+    void func17 (int N) {               // V.V.VImp
         for (int i=N; i>0; i=i/2) {
-            for (int j=1; j<=i); j++) {
+            for (int j=1; j<=i; j++) {
                 System.out.println("Hello World");
             }
         }
@@ -361,11 +361,15 @@ public class TC_1 {
      *      N/8   [1 -> N/8]    N/8                 N+(N/2)+(N/4)+(N/8)
      *      .       .           .                   .
      *      .       .           .                   .
-     *    1og(N) [1 -> log(N)]  log(N)              N+(N/2^1)+(N/2^2)+(N/2^3) ... [log(N) times/terms] 
+     *      4     [1 -> 4]      4                   N+(N/2)+(N/4)+(N/8) ... + 4
+     *      2     [1 -> 2]      2                   N+(N/2)+(N/4)+(N/8) ... + 4 + 2
+     *      1       1           1                   N+(N/2)+(N/4)+(N/8) ... + 4 + 2 + 1
+     *      0       breaks                          1 + 2 + 4 ... + (N/8) + (N/4) + (N/2) + N
      * 
+     *  - From funct9 -> this series will only have log(N) terms [it may look like N-terms but It is NOT]
      *  - Sum of 1st N-terms of G.P = a(r^n - 1)/(r-1)
-     *                              = N(2^log(N) - 1)/(2-1)
-     *                              = 2(2^N - 1) iterations     
+     *                              = 1(2^(log(N)) - 1)
+     *                              = N iterations   
      */
 
 
