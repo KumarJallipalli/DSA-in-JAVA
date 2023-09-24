@@ -385,4 +385,32 @@ public class TC_1 {
      * And i will run for log(N) [base2] times
      * So, Total iterations = log(N)*3 = 3log(N) 
     */
+
+    void func18 (int N) {
+        for (int i=3; i<N/3; i+=3) {
+            for (int j=2; j<N/2; j+=2) {
+                System.out.println("Hello");
+            }
+        }
+    }
+    /*
+     *      i       j                   iterations
+     *      3   [2, 4, 6, 8 ... N/2]        N/4 
+     *      6       same                    N/4
+     *      9       same                    N/4
+     *      .       .                       .   
+     *      .       .                       .
+     *      N/3     same                    N/4
+     *    N/9 terms                     Total = (N/4)*(N/9)
+     * 
+     * Explanation:
+     *      - [ 1, 2, 3, 4 ... n-2, n-1, n ] -> N terms
+     *      - [ 2, 4, 6, 8 ... n-4, n-2, n ] -> N/2 terms
+     *      - [ 2, 4, 6, 8 ... n/2 ]         -> N/4 terms
+     *      - [ 3, 6, 9, 12 ... n-6, n-3, n] -> N/3 terms
+     *      - [ 3, 6, 9, 12 ... n/3 ]        -> N/9 terms
+     * 
+     * - TC = O(N^2)
+     * - SC = O(1)
+     */
 }
