@@ -182,27 +182,95 @@ public class Arrays_3_CarryForward {
 
         int closest = n; //since the worst closest min max is n
         //actual code for closest min max
-        for (int i=0; i<n; i++) {
-            if (arr_3[i] == min_Element) {
-                for (int j=i+1; j<n; j++) {
-                    //if we find max elemnt, it makes a pair so update the ans & break
-                    if (arr_3[j] == max_Element) {
-                        closest = Math.min(closest, j-i+1);
-                        break;
+        if (min_Element == max_Element) { // for case: arr = { 8, 8, 8, 8 }
+            closest = 1;
+        }
+        else {
+            for (int i=0; i<n; i++) {
+                if (arr_3[i] == min_Element) {
+                    for (int j=i+1; j<n; j++) {
+                        //if we find max elemnt, it makes a pair so update the ans & break
+                        if (arr_3[j] == max_Element) {
+                            closest = Math.min(closest, j-i+1);
+                            break;
+                        }
                     }
                 }
-            }
 
-            if (arr_3[i] == max_Element) {
-                for (int j=i+1; j<n; j++) {
-                    //if we find min elemnt, it makes a pair so update the ans & break
-                    if (arr_3[j] == min_Element) {
-                        closest = Math.min(closest, j-i+1);
-                        break;
+                if (arr_3[i] == max_Element) {
+                    for (int j=i+1; j<n; j++) {
+                        //if we find min elemnt, it makes a pair so update the ans & break
+                        if (arr_3[j] == min_Element) {
+                            closest = Math.min(closest, j-i+1);
+                            break;
+                        }
                     }
                 }
             }
         }
+        System.out.println(closest);
+        
+        /*
+         * TC = O(N^2)
+         * SC = O(1)
+        */
+
+        /*
+         * Let's Optimise the code:
+         * ex:              0   1   2   3   4   5   6   7   8   9
+         *          arr =   1   2   3   1   3   4   6   4   6   3
+         * 
+         * WKT, we only need, indices of min & max element to cal the min sub-array between those
+         * So, we will take 4 variables
+         *          minEle          maxEle      MinInd      MaxInd
+         * we will iterate from right side
+         *      - if we encounter any min  (or) max element in array, we will update minInd (or) maxInd
+         *          - Now, if we encounter any max (or) min Element, we will update the ans var using minInd/maxInd
+         *          - like, ans =  minInd-i+1
+         *      - We do this repeatedly
+         * 
+         * ex:              0   1   2   3   4   5   6   7   8   9       min = 1
+         *          arr =   1   2   3   1   3   4   6   4   6   3       max = 6
+         * 
+         *      i       minInd      maxInd          Ans
+         *      n       -1          -1              n       [Before starting the iteration]
+         *      9       -1          -1              n
+         *      8       -1          8               n
+         *      7       -1          8               n
+         *      6       -1          6               n
+         *      5       -1          6               n
+         *      4       -1          6               n       [ we didn't find any minInd until here. Since only maxInd]
+         *      3       3           6               (6-3+1) = 4
+         *      2       3           6               4
+         *      1       3           6               4
+         *      0       0           6               (6-0+1) = 6 && min(4,6) = 4 [Final ans]
+        */
+
+        //Optimised Code
+        int minInd = -1;
+        int maxInd = -1;
+        if (min_Element == max_Element) {
+            closest = 1;
+        }
+        else {
+            for (int i=n-1; i>=0; i--) {
+                if (arr_3[i] == min_Element) {
+                    minInd = i;
+                    if (maxInd != -1)
+                        closest = Math.min(closest, maxInd-i+1);
+                }
+                if (arr_3[i] == max_Element) {
+                    maxInd = i;
+                    if (minInd != -1)
+                        closest = Math.min(closest, minInd-i+1);
+                }
+            }
+        }
+        System.out.println(closest);
+        /*
+         * TC = O(N)
+         * SC = O(1)
+        */
 
 
     }
