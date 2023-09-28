@@ -176,10 +176,10 @@ public class TC_1 {
      *          4           10      0
      * 
      * - That means 0 <= N && the loop never breaks, it will run infinitely
-     * - So, when loop runs infinitely, JVM will throw TEE [Time Exceeding Error]
+     * - So, when loop runs infinitely, JVM will throw TLE [Time Limit Exceeding Error]
      *      - To keep the computer resources under check & optimal purpose
      *      - JVM will give only give some allocated time for program to run, if the program still takes more time
-     *      - JVM will stop the program abruptly & throw TEE
+     *      - JVM will stop the program abruptly & throw TLE
      *      - So that the resource uasge by program will be stopped & is used by other programs or applications
     */
 
@@ -404,9 +404,9 @@ public class TC_1 {
      *    N/9 terms                     Total = (N/4)*(N/9)
      * 
      * Explanation:
-     *      - [ 1, 2, 3, 4 ... n-2, n-1, n ] -> N terms
-     *      - [ 2, 4, 6, 8 ... n-4, n-2, n ] -> N/2 terms
-     *      - [ 2, 4, 6, 8 ... n/2 ]         -> N/4 terms
+     *      - [ 1, 2, 3, 4 ... n-2, n-1, n ] -> N terms     [Odd + Even]
+     *      - [ 2, 4, 6, 8 ... n-4, n-2, n ] -> N/2 terms   [Even]
+     *      - [ 2, 4, 6, 8 ... n/2 ]         -> N/4 terms   [half of Even]
      *      - [ 3, 6, 9, 12 ... n-6, n-3, n] -> N/3 terms
      *      - [ 3, 6, 9, 12 ... n/3 ]        -> N/9 terms
      * 
