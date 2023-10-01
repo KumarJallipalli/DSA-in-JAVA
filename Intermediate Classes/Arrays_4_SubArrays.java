@@ -111,8 +111,203 @@ public class Arrays_4_SubArrays {
         
                 
         
+            
+        /*
+         * Question-3:
+         * Print sum of each sub-array starting at index i [i = 2]
+         *          arr = { 7, 3, 2, -1, 6, 8, 2, 3 }
+         *      Indices     Sum
+         *      [2, 2]      2
+         *      [2, 3]      1
+         *      [2, 4]      7
+         *      [2, 5]      15
+         *      [2, 6]      17
+         *      [2, 7]      20
+        */
+                // int[] temp_arr = { 7, 3, 2, -1, 6, 8, 2, 3 };
+                // int n = temp_arr.length;
+
+                // int sum = 0;
+                // int index = 2;
+                // for (int i=index; i<n; i++) {
+                //     sum = sum + temp_arr[i];
+                //     System.out.println("Sum = " + sum);
+                // }
+        /*
+         * TC = O(N)
+         * SC = O(1)
+         *      - If we use prefix array, it will have SC = O(N) too along with TC = O(N)
+         * 
+         *  - If we change i = 0, it will give all the sub arrays sum starting with start index 0 right..!
+         *  - Similarly, if i = 1, it will give all the sub-arrays sum with start index 1.
+         *  - and the same goes on till n-1
+         *  - So, if we iterate the above code with an extra for-loop from i = 1 -> n-1
+         *      - It will give us the sum of all the sub-arrays 
+         *  - And if we calculate the max of those in each step, it will give us the max of all sub-arrays
+         *  - Which means, it will make the SC = O(1) too [whic is more optimal code than Question-2]
+         *      - This is happeninig only that indices are not varying randomly
+         *      - If Indices are random instead of sequence, then prefix is more preferable/usable
+        */
+                // sumAllSubArrays();
+
+
+
+        /*
+         * Question-4:
+         * Find the sum of all the individual sub-arrays sum
+         *              arr = { 8, 2, -9, 10 }
+         *      indices         Sub-Arrays          Sum
+         *      [0, 0]          8                   8
+         *      [0, 1]          8 2                 10
+         *      [0, 2]          8 2 -9              1
+         *      [0, 3]          8 2 -9 10           11
+         *      [1, 1]          2                   2
+         *      [1, 2]          2 -9                -7
+         *      [1, 3]          2 -9 10             3
+         *      [2, 2]          -9                  -9
+         *      [2, 3]          -9 10               1
+         *      [3, 3]          10                  10
+         *                              ----------------
+         *                              Total Sum = 138
+        */
+        allSubArraysSum();
+
+
+
+        /*
+         * In how many sub-arrays, index - 3 is present
+         *                  0   1  2   3  4  6
+         *          arr = { 3, -2, 4, -1, 2, 6 }
+         *  All the possible Start index which may include ind-3 - 0   1   2   3
+         *  All the possible End index which may include ind-3 -   3   4   6
+         *  If we pick any 2 indices from above [i.e., 1 from each], it will definitely have ind-3
+         *  
+         * Similarly, In how many sub-arrays, 
+         *  index-1 is present [for same array]             Index-0 is present
+         *          s       e                                   s       e
+         *          0       1                                   0       0
+         *          1       2                                           1
+         *                  3                                           2
+         *                  4                                           3
+         *                  5                                           4
+         *              Total = 10 sub-arrays                           5
+         *                                                          Total = 6 subarray
+         * 
+         * Generalize:
+         *          arr = { 1, 2, 3 ... i ... N-2,N-1, N }
+         * In how many sub-arrays, index-i will be present..?
+         *          s       e
+         *          0       i
+         *          1       i+1
+         *          2       i+2
+         *          .       .
+         *          .       .
+         *          i       n-1
+         *      -------------------
+         *         i+1      n-i
+         * 
+         *      - Total sub-arrays in which ith index would be present is (i+1)*(n-i)
+        */  
+        
+        /*
+         *  - So, let's go back to Question-4
+         * Find the sum of all the individual sub-arrays sum
+         *              arr = { 8, 2, -9, 10 }
+         *      indices         Sub-Arrays          Sum
+         *      [0, 0]          8                   8
+         *      [0, 1]          8 2                 10
+         *      [0, 2]          8 2 -9              1
+         *      [0, 3]          8 2 -9 10           11
+         *      [1, 1]          2                   2
+         *      [1, 2]          2 -9                -7
+         *      [1, 3]          2 -9 10             3
+         *      [2, 2]          -9                  -9
+         *      [2, 3]          -9 10               1
+         *      [3, 3]          10                  10
+         *                    -----------       -----------
+         *                 Total sum = 138      Total Sum = 138
+         * 
+         *  - var sum, cal the sum of each sub-array && total sum = sum of all sum's
+         *  - The same total sum can also be achieved by addings all the individual elements of each sub-array
+         *          - [8]+[8+2]+[8+2-9]...[-9+10]+[10]
+         *          - (4*8)+(6*2)+(6*(-9))+(4*10)
+         *          - i.e., each elements is being multiplied by it's frequency
+         *  - Luckily, we have the formula for freq of an element = (i+1)*(n-i)  [Gives, freq of index]
+        */
+        
         
     }
+
+    //------------------------------    Question - 4    -------------------------------------------
+    public static void allSubArraysSum () {
+        int[] arr = arrayInput();
+        int n = arr.length;
+
+        int totalSum = 0;
+        for (int i=0; i<n; i++) {
+            int sum = 0;
+            for (int j=i; j<n; j++) {
+                sum = sum + arr[j];             //To cal, each sub-array sum
+                totalSum = totalSum + sum;      //To cal, sum of each sub-array sum
+            }
+        }
+
+        System.out.println("Total sum of all individual sub-arrays is: " + totalSum);
+    }
+    /*
+     * TC = O(N^2)
+     * SC = O(1)
+    */
+
+
+    //More optimal of above code using the newly calculated freq formula
+    public static void allSubArraysSum_freq () {
+        int[] arr = arrayInput();
+        int n = arr.length;
+
+        int sum = 0;
+        for (int i=0; i<n; i++) {
+            int freq = (i+1)*(n-i);
+            sum = sum + freq*arr[i];
+        }
+
+        System.out.println("Total sum of all individual sub-arrays is: " + sum);
+    }
+    /*
+     * TC = O(N)
+     * SC = O(1)
+    */
+
+    //------------------------------    Question - 3    -------------------------------------------
+    public static void sumAllSubArrays () {
+        int[] arr = arrayInput();
+        int n = arr.length;
+
+        int maxSum = arr[0];
+
+        //This is to iterate on each index, so that to cal sum of all sub-arrays of that index
+        for (int i=0; i<n; i++) {
+            int sum = 0;
+
+            //All the sub-arrays sum of that indext
+            for (int j=i; j<n; j++) {
+                sum = sum + arr[j];
+
+                if (sum > maxSum)
+                maxSum = sum;
+            }     
+        }
+        
+        System.out.println("Max sum of all sub-arrays = " + maxSum);
+    }
+    /*
+     * TC = O(N^2)
+     * SC = O(1)
+     *      - If you observe, this is more optimla code than the Question-2's optimal code
+     *      - this is only due to that, indicesa are sequencial
+     *      - If not then the prefix methos is more optimal.
+     *      - But still, "Kadane's Algorithm" is more optimal than any of the above 2
+    */
 
     //------------------------------    Question - 2    -------------------------------------------
     public static void subArraySum_Brute () {
